@@ -9,7 +9,7 @@ const T = {
     navServices: "خدماتنا", navProcess: "منهجية العمل", navContact: "تواصل معنا",
     ctaQuote: "طلب عرض سعر", ctaServices: "استعراض الخدمات",
     heroTitle: "حلول رقمية ذكية لقطاع الأعمال في قطر",
-    heroLead: "تقدّم القدوة حلولًا متكاملة تشمل تطوير المواقع الإلكترونية، والمساعدات الذكية لخدمة العملاء، وأتمتة واتساب للأعمال، وموظف الاستقبال الذكي، والعروض التفاعلية ثلاثية الأبعاد للمشاريع العقارية.",
+    heroLead: "تقدّم القدوة حلولًا متكاملة تشمل تطوير المواقع الإلكترونية، والمساعدات الذكية لخدمة العملاء، وأتمتة واتساب للأعمال، وموظف الاستقبال الذكي.",
     towerHint: "اختر أحد الطوابق لاستعراض الخدمة",
     floorWord: "الطابق",
     floorCta: "طلب هذه الخدمة",
@@ -44,7 +44,7 @@ const T = {
     navServices: "Services", navProcess: "Our Process", navContact: "Contact Us",
     ctaQuote: "Request a Quote", ctaServices: "Explore Our Services",
     heroTitle: "Intelligent Digital Solutions for Businesses in Qatar",
-    heroLead: "Qudwa delivers end-to-end digital solutions, including website development, AI customer assistants, WhatsApp Business automation, AI receptionists and interactive 3D showcases for real estate developments.",
+    heroLead: "Qudwa delivers end-to-end digital solutions, including website development, AI customer assistants, WhatsApp Business automation and AI receptionists.",
     towerHint: "Select a floor to view the service",
     floorWord: "Floor",
     floorCta: "Request This Service",
@@ -75,15 +75,15 @@ const T = {
   }
 };
 
-// Bottom floor first: websites are the foundation, 3D showcases on top.
+// Bottom floor first: websites are the foundation.
 const SERVICES = [
   {
     id: "web",
     icon: '<rect x="4" y="6" width="32" height="26" rx="3"/><path d="M4 13h32"/><circle cx="9" cy="9.5" r="1"/><circle cx="13" cy="9.5" r="1"/>',
-    ar: { t: "تطوير المواقع الإلكترونية", d: "مواقع احترافية ثنائية اللغة، متوافقة مع جميع الأجهزة، ومرتبطة بنطاق ⁦.qa⁩ خاص بمنشأتكم.",
-          b: ["تصميم مخصص للهوية التجارية", "إعداد النطاق والاستضافة", "دعم فني بعد الإطلاق"] },
-    en: { t: "Website Development", d: "Professional bilingual websites, optimised for every device and hosted on your own .qa domain.",
-          b: ["Custom design aligned with your brand", "Domain and hosting setup", "Post-launch technical support"] }
+    ar: { t: "تطوير المواقع الإلكترونية", d: "مواقع احترافية ثنائية اللغة، متوافقة مع جميع الأجهزة، ومرتبطة بنطاق ⁦.qa⁩ خاص بمنشأتكم، بما في ذلك العروض العقارية التفاعلية ثلاثية الأبعاد للمطورين والوسطاء.",
+          b: ["تصميم مخصص للهوية التجارية", "عروض عقارية ثلاثية الأبعاد", "إعداد النطاق والاستضافة", "دعم فني بعد الإطلاق"] },
+    en: { t: "Website Development", d: "Professional bilingual websites, optimised for every device and hosted on your own .qa domain, including interactive 3D property showcases for developers and brokers.",
+          b: ["Custom design aligned with your brand", "Interactive 3D property showcases", "Domain and hosting setup", "Post-launch technical support"] }
   },
   {
     id: "chat",
@@ -108,14 +108,6 @@ const SERVICES = [
           b: ["جدولة المواعيد", "الرد على المكالمات", "تقارير يومية"] },
     en: { t: "AI Receptionist", d: "Handles calls and messages, schedules appointments and provides you with a summary of every conversation.",
           b: ["Appointment scheduling", "Call handling", "Daily reports"] }
-  },
-  {
-    id: "3d",
-    icon: '<path d="M20 4l12 6v24l-12 4-12-4V10z"/><path d="M8 10l12 5 12-5M20 15v23"/><path d="M8 18l12 5 12-5M8 26l12 5 12-5"/>',
-    ar: { t: "العروض العقارية التفاعلية", d: "نماذج ثلاثية الأبعاد للمشاريع العقارية، تتيح للمشتري استعراض مخطط كل طابق وصوره بنقرة واحدة.",
-          b: ["نماذج ثلاثية الأبعاد", "مخططات وصور لكل طابق", "مصممة للمطورين والوسطاء العقاريين"] },
-    en: { t: "Interactive 3D Property Showcases", d: "3D models of real estate developments that allow buyers to view each floor's plan and imagery in a single click.",
-          b: ["3D modelling", "Floor plans and imagery per level", "Designed for developers and brokers"] }
   }
 ];
 
@@ -145,7 +137,7 @@ function saveLang(v) { try { localStorage.setItem("qudwa-lang", v); } catch (e) 
 
 // ===== Tower =====
 const SVGNS = "http://www.w3.org/2000/svg";
-const CX = 200, A = 150, B = 62, H = 56, TOP = 44;
+const CX = 200, A = 150, B = 62, H = 70, TOP = 44;
 
 function poly(pts, cls) {
   const p = document.createElementNS(SVGNS, "polygon");
@@ -160,7 +152,7 @@ function buildTower() {
   svg.setAttribute("viewBox", "0 0 400 470");
 
   // ground
-  const baseY = TOP + 4 * H + B + H; // center of bottom footprint
+  const baseY = TOP + (SERVICES.length - 1) * H + B + H; // center of bottom footprint
   svg.appendChild(poly([[CX, baseY - B - 22], [CX + A + 40, baseY], [CX, baseY + B + 22], [CX - A - 40, baseY]], "ground"));
 
   for (let i = 0; i < SERVICES.length; i++) {
