@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>القدوة | Qudwa</title>
+  <meta name="description" content="القدوة: مواقع وأنظمة ذكية للأعمال في قطر. مواقع، مساعد دردشة ذكي، أتمتة واتساب، موظف استقبال ذكي، وعروض تفاعلية للمباني.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">تخطَّ إلى المحتوى</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Qudwa">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name" data-i18n="brand">القدوة</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#services" data-i18n="navServices">خدماتنا</a>
+        <a href="#process" data-i18n="navProcess">طريقة العمل</a>
+        <a href="#contact" data-i18n="navContact">تواصل معنا</a>
+      </nav>
+      <div class="header-actions">
+        <button class="lang-btn" id="langBtn" type="button" lang="en">English</button>
+        <a class="btn btn-primary btn-sm" href="#contact" data-i18n="ctaQuote">اطلب عرض سعر</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO: the building is the services menu -->
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1 data-i18n="heroTitle">مواقع وأنظمة ذكية تعمل لنشاطك، حتى بعد الدوام</h1>
+          <p class="lead" data-i18n="heroLead">من قطر، نبني مواقع فيها مساعد ذكي يرد على عملائك، ونربطها بواتساب، ونصمم عروضًا تفاعلية للمشاريع العقارية.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact" data-i18n="ctaQuote">اطلب عرض سعر</a>
+            <a class="btn btn-ghost" href="#services" data-i18n="ctaServices">تصفح الخدمات</a>
+          </div>
+        </div>
+
+        <div class="tower-wrap">
+          <svg class="tower" id="tower" viewBox="0 0 400 450" role="group" aria-labelledby="towerHint"></svg>
+          <div class="floor-panel" id="floorPanel" aria-live="polite">
+            <p class="floor-num" id="floorNum"></p>
+            <h2 class="floor-title" id="floorTitle"></h2>
+            <p class="floor-text" id="floorText"></p>
+            <a class="floor-link" id="floorLink" href="#contact" data-i18n="floorCta">اطلب هذه الخدمة</a>
+          </div>
+          <p class="tower-hint" id="towerHint" data-i18n="towerHint">اضغط على أي طابق لترى الخدمة</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <h2 class="section-title" data-i18n="servicesTitle">ماذا نبني لك</h2>
+        <p class="section-lead" data-i18n="servicesLead">كل خدمة تُطلب لوحدها، أو نجمعها لك في نظام واحد.</p>
+        <div class="service-list" id="serviceList"></div>
+      </div>
+    </section>
+
+    <!-- PROCESS (a real sequence) -->
+    <section class="section section-stone" id="process">
+      <div class="wrap">
+        <h2 class="section-title" data-i18n="processTitle">كيف نعمل معك</h2>
+        <ol class="steps" id="steps"></ol>
+      </div>
+    </section>
+
+    <!-- CONTACT / QUOTE -->
+    <section class="section" id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-copy">
+          <h2 class="section-title" data-i18n="contactTitle">لنبدأ مشروعك</h2>
+          <p class="section-lead" data-i18n="contactLead">املأ النموذج، وسنكمل معك على واتساب بعرض سعر واضح.</p>
+          <dl class="contact-direct">
+            <div>
+              <dt data-i18n="labelWhatsapp">واتساب</dt>
+              <dd><a href="#" class="js-wa-link" dir="ltr">+974 0000 0000</a></dd>
+            </div>
+            <div>
+              <dt data-i18n="labelEmail">البريد الإلكتروني</dt>
+              <dd><a href="mailto:hello@qudwa.qa" dir="ltr">hello@qudwa.qa</a></dd>
+            </div>
+            <div>
+              <dt data-i18n="labelHours">ساعات العمل</dt>
+              <dd data-i18n="hours">الأحد إلى الخميس، 9 صباحًا حتى 6 مساءً</dd>
+            </div>
+          </dl>
+        </div>
+
+        <form class="quote-form" id="quoteForm" novalidate>
+          <div class="field">
+            <label for="fName" data-i18n="fName">الاسم</label>
+            <input id="fName" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="fPhone" data-i18n="fPhone">رقم الجوال</label>
+            <input id="fPhone" name="phone" type="tel" autocomplete="tel" dir="ltr" required>
+          </div>
+          <div class="field">
+            <label for="fBiz" data-i18n="fBiz">اسم النشاط التجاري</label>
+            <input id="fBiz" name="business" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="fService" data-i18n="fService">الخدمة</label>
+            <select id="fService" name="service"></select>
+          </div>
+          <div class="field">
+            <label for="fMsg" data-i18n="fMsg">تفاصيل مختصرة</label>
+            <textarea id="fMsg" name="message" rows="4"></textarea>
+          </div>
+          <label class="check">
+            <input type="checkbox" id="fPrivacy" required>
+            <span data-i18n-html="fPrivacy">أوافق على <a href="privacy.html">سياسة الخصوصية</a></span>
+          </label>
+          <label class="check">
+            <input type="checkbox" id="fMarketing">
+            <span data-i18n="fMarketing">أرغب في استلام العروض والأخبار من القدوة (اختياري)</span>
+          </label>
+          <p class="form-error" id="formError" role="alert"></p>
+          <button class="btn btn-primary btn-block" type="submit" data-i18n="fSubmit">إرسال عبر واتساب</button>
+          <a class="wa-open" id="waOpen" href="#" target="_blank" rel="noopener" hidden></a>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-brand" data-i18n="brand">القدوة</p>
+        <p class="footer-tag" data-i18n="footerTag">مواقع وأنظمة ذكية للأعمال في قطر.</p>
+      </div>
+      <dl class="legal">
+        <div><dt data-i18n="crLabel">رقم السجل التجاري</dt><dd>—</dd></div>
+        <div><dt data-i18n="licLabel">رقم رخصة التجارة الإلكترونية</dt><dd>—</dd></div>
+      </dl>
+      <nav class="footer-links" aria-label="Legal">
+        <a href="terms.html" data-i18n="linkTerms">الشروط والأحكام</a>
+        <a href="privacy.html" data-i18n="linkPrivacy">سياسة الخصوصية</a>
+        <a href="refunds.html" data-i18n="linkRefunds">سياسة الإلغاء والاسترجاع</a>
+        <a href="complaints.html" data-i18n="linkComplaints">تقديم شكوى</a>
+      </nav>
+    </div>
+    <div class="wrap footer-bottom">
+      <p data-i18n="copyright">© 2026 القدوة. الدوحة، قطر.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
