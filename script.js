@@ -7,14 +7,12 @@ const T = {
     skip: "الانتقال إلى المحتوى",
     brand: "القدوة",
     navServices: "خدماتنا", navProcess: "منهجية العمل", navContact: "تواصل معنا",
-    ctaQuote: "طلب عرض سعر", ctaServices: "استعراض الخدمات",
+    ctaQuote: "طلب عرض سعر",
     heroTitle: "حلول رقمية ذكية لقطاع الأعمال في قطر",
-    heroLead: "تقدّم القدوة حلولًا متكاملة تشمل تطوير المواقع الإلكترونية، والمساعدات الذكية لخدمة العملاء، وأتمتة واتساب للأعمال، وموظف الاستقبال الذكي.",
+    heroLead: "نبني لمنشأتكم حضورًا رقميًا يعمل على مدار الساعة، من الموقع حتى خدمة العملاء.",
     towerHint: "اختر أحد الطوابق لاستعراض الخدمة",
     floorWord: "الطابق",
     floorCta: "طلب هذه الخدمة",
-    servicesTitle: "خدماتنا",
-    servicesLead: "يمكن طلب كل خدمة بشكل مستقل، أو دمج عدة خدمات ضمن حل متكامل يلبي احتياجات منشأتكم.",
     processTitle: "منهجية العمل",
     contactTitle: "تواصل معنا",
     contactLead: "يرجى تعبئة النموذج، وسيتواصل معكم فريقنا عبر واتساب لتقديم عرض سعر مفصّل.",
@@ -42,14 +40,12 @@ const T = {
     skip: "Skip to content",
     brand: "Qudwa",
     navServices: "Services", navProcess: "Our Process", navContact: "Contact Us",
-    ctaQuote: "Request a Quote", ctaServices: "Explore Our Services",
+    ctaQuote: "Request a Quote",
     heroTitle: "Intelligent Digital Solutions for Businesses in Qatar",
-    heroLead: "Qudwa delivers end-to-end digital solutions, including website development, AI customer assistants, WhatsApp Business automation and AI receptionists.",
+    heroLead: "We build your business an online presence that works around the clock, from your website to customer service.",
     towerHint: "Select a floor to view the service",
     floorWord: "Floor",
     floorCta: "Request This Service",
-    servicesTitle: "Our Services",
-    servicesLead: "Each service is available individually or as part of an integrated solution tailored to your business.",
     processTitle: "Our Process",
     contactTitle: "Contact Us",
     contactLead: "Please complete the form and our team will contact you on WhatsApp with a detailed proposal.",
@@ -215,20 +211,11 @@ function setFloor(i) {
   document.getElementById("floorNum").textContent = `${T[lang].floorWord} ${i + 1}`;
   document.getElementById("floorTitle").textContent = s.t;
   document.getElementById("floorText").textContent = s.d;
+  document.getElementById("floorList").innerHTML = s.b.map(x => `<li>${x}</li>`).join("");
 }
 
 // ===== Render language-dependent parts =====
 function renderServices() {
-  const list = document.getElementById("serviceList");
-  list.innerHTML = SERVICES.map((s, i) => {
-    const c = s[lang];
-    return `<article class="service" id="svc-${s.id}">
-      <svg class="service-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${s.icon}</svg>
-      <h3>${c.t}<span class="service-floor">${T[lang].floorWord} ${i + 1}</span></h3>
-      <div class="service-body"><p>${c.d}</p><ul>${c.b.map(x => `<li>${x}</li>`).join("")}</ul></div>
-    </article>`;
-  }).join("");
-
   const sel = document.getElementById("fService");
   const prev = sel.value;
   sel.innerHTML = SERVICES.map(s => `<option value="${s.id}">${s[lang].t}</option>`).join("") +
