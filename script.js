@@ -1,5 +1,5 @@
 // ===== Settings: change these before going live =====
-const WHATSAPP_NUMBER = "97400000000"; // your WhatsApp number, digits only, with 974
+const WHATSAPP_NUMBER = "97455897286"; // your WhatsApp number, digits only, with 974
 
 // ===== Text (Arabic + English) =====
 const T = {
